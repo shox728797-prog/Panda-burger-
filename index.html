@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta name="google-site-verification" content="FDKjS9kSTeX9MTeHw51_0drMd-tWgJxm--Ix8U-DGFQ" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0c">
+<title>PANDA BURGER | Taste The Legend</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#090a0c;--panel:#131619;--line:#292d30;--gold:#ffc629;--white:#fffdf7;--muted:#a3a6a7}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',Arial,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#090a0cf2;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff15}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font:900 23px/ .95 Outfit,sans-serif;letter-spacing:-1px;white-space:nowrap}
+.brand span{color:var(--gold)}
+.brand small{display:block;font-size:10px;letter-spacing:3px;color:#ddd;margin-top:5px}
+.links{display:flex;gap:23px;font-size:13px;color:#ddd}
+.links a:hover{color:var(--gold)}
+.navright{display:flex;gap:10px;align-items:center}
+.btn{border:0;border-radius:9px;padding:13px 18px;background:var(--gold);color:#16120a;font-weight:800;transition:.2s}
+.btn:hover{background:#ffda6d;transform:translateY(-2px)}
+.btn.dark{background:#1a1e21;border:1px solid var(--line);color:white}
+.iconbtn{position:relative;background:#181b1e;border:1px solid var(--line);color:white;width:42px;height:42px;border-radius:50%;font-size:18px}
+.count{position:absolute;right:-4px;top:-5px;background:var(--gold);color:#111;border-radius:20px;padding:3px 6px;font-size:10px;font-weight:bold}
+.hero{padding:32px 0}
+.herobox{min-height:460px;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;border-radius:22px;border:1px solid #ffffff18;background:#17120d}
+.herobg{position:absolute;inset:0;background:linear-gradient(90deg,#080a0cf7 0%,#080a0cdd 37%,#080a0c22 100%),url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1600&q=85') center/cover}
+.herotext{position:relative;padding:clamp(25px,5vw,60px);z-index:1}
+.kicker{font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:900}
+.hero h1{font:900 clamp(48px,7vw,84px)/.94 Outfit,sans-serif;letter-spacing:-3px;margin:23px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:14px;line-height:1.8;color:#d0d0ca;max-width:420px;margin-bottom:25px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.heroquote{position:absolute;right:25px;bottom:25px;padding:15px 19px;border-radius:12px;background:#0c100fdc;border:1px solid #ffffff20;transform:rotate(-3deg)}
+.heroquote b{font:800 22px Outfit;color:var(--gold)}
+.heroquote small{display:block;color:#ddd;margin-top:3px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:5px 0 45px}
+.feature{display:flex;gap:12px;align-items:center;padding:17px 12px;border:1px solid var(--line);border-radius:12px;background:#111416}
+.feature i{font-style:normal;font-size:26px}
+.feature b{font-size:12px;display:block}
+.feature small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+.section{padding:24px 0 50px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:23px}
+.eyebrow{color:var(--gold);font-size:10px;letter-spacing:2px;font-weight:900;margin-bottom:8px}
+h2{font:800 clamp(26px,4vw,37px)/1.1 Outfit,sans-serif}
+.sub{color:var(--muted);font-size:13px;margin-top:8px}
+.search{width:min(240px,45%);padding:12px 14px;border-radius:10px;background:#14181b;color:white;border:1px solid var(--line);outline:none}
+.search:focus{border-color:var(--gold)}
+.categories{display:flex;gap:10px;overflow-x:auto;padding:3px 0 19px}
+.cat{min-width:103px;padding:15px 12px;background:#131619;border:1px solid var(--line);color:white;border-radius:12px;font-size:12px;font-weight:700}
+.cat span{display:block;font-size:25px;margin-bottom:8px}
+.cat.active,.cat:hover{background:var(--gold);border-color:var(--gold);color:#111}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px;align-items:start}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.product{background:linear-gradient(145deg,#161a1d,#0e1113);border:1px solid var(--line);border-radius:15px;padding:10px;overflow:hidden;transition:.2s}
+.product:hover{border-color:#a98725;transform:translateY(-3px)}
+.photo{height:145px;position:relative;border-radius:10px;overflow:hidden;background:#1c1a15}
+.photo img{height:100%;transition:.35s}
+.product:hover .photo img{transform:scale(1.07)}
+.fav{position:absolute;top:9px;right:9px;border:0;background:#080a0bc9;color:white;width:32px;height:32px;border-radius:50%;font-size:18px}
+.fav.on{color:#ff667c}
+.tag{position:absolute;left:8px;top:8px;background:var(--gold);color:#111;border-radius:5px;padding:5px 7px;font-size:9px;font-weight:900}
+.product h3{font-size:15px;margin:13px 2px 6px}
+.desc{font-size:11px;color:var(--muted);line-height:1.5;min-height:32px;margin:0 2px}
+.price{font-weight:900;color:var(--gold);margin:12px 2px}
+.add{width:100%;padding:11px 5px;background:var(--gold);color:#111;border:0;border-radius:8px;font-weight:800;font-size:12px}
+.add:hover{background:#ffda70}
+.side{display:grid;gap:14px;position:sticky;top:91px}
+.panel{background:#111518;border:1px solid var(--line);border-radius:15px;padding:17px}
+.panel h3{font:800 21px Outfit;margin-bottom:15px}
+.cartline{display:grid;grid-template-columns:1fr auto;gap:7px;border-bottom:1px solid var(--line);padding:12px 0}
+.cartline b{font-size:12px}
+.cartline small{display:block;color:var(--muted);font-size:11px;margin-top:5px}
+.qty{display:flex;align-items:center;gap:9px;margin-top:8px}
+.qty button{width:25px;height:25px;background:#202529;border:1px solid var(--line);color:white;border-radius:6px}
+.remove{border:0;background:none;color:#ff8080}
+.total{display:flex;justify-content:space-between;gap:10px;margin:18px 0;font-weight:bold}
+.total strong{color:var(--gold);font-size:18px}
+.full{width:100%}
+.empty{color:var(--muted);font-size:13px;line-height:1.7}
+.promo{min-height:180px;padding:22px;border-radius:15px;background:linear-gradient(125deg,#39240d,#17120c);border:1px solid #60461a}
+.promo h3{font:900 25px/1.05 Outfit;color:var(--gold);margin:12px 0}
+.promo p{font-size:12px;line-height:1.7;color:#ded8ca;margin-bottom:15px}
+form{display:grid;gap:11px}
+label{font-size:11px;color:#c7c8c5}
+input,select,textarea{display:block;width:100%;margin-top:6px;padding:12px;background:#0b0e10;border:1px solid var(--line);border-radius:8px;color:white;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+.orderhint{font-size:10px;color:var(--muted);line-height:1.6;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:12px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120px);background:var(--gold);color:#111;font-weight:800;padding:14px 20px;border-radius:10px;z-index:50;transition:.3s;box-shadow:0 8px 30px #0008;width:max-content;max-width:90%}
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:950px){.links{gap:13px}.layout{grid-template-columns:1fr}.side{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.nav{height:auto;min-height:68px;flex-wrap:wrap;padding:10px 0}.links{order:3;width:100%;overflow-x:auto;padding:4px 0 8px}.links a{white-space:nowrap}.navright>.btn{display:none}.brand{font-size:20px}.herobox{min-height:470px;grid-template-columns:1fr}.herobg{background:linear-gradient(90deg,#080a0ceF,#080a0c70),url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1000&q=80') center/cover}.herotext{padding:30px 23px;align-self:center}.hero h1{font-size:60px}.heroquote{right:15px;bottom:13px}.features{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo{height:120px}.product{padding:8px}.product h3{font-size:13px}.desc{font-size:10px}.add{font-size:11px}.side{grid-template-columns:1fr}.head{align-items:start;flex-direction:column}.search{width:100%}}
+@media(max-width:360px){.products{grid-template-columns:1fr}.photo{height:175px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="brand">🐼 PANDA <span>BURGER<small>TASTE THE LEGEND</small></span></a>
+  <nav class="links">
+   <a href="#home">Bosh sahifa</a><a href="#menu">Menyu</a><a href="#offers">Aksiyalar</a><a href="#about">Biz haqimizda</a>
+  </nav>
+  <div class="navright">
+   <button class="iconbtn" onclick="document.getElementById('search').focus()" aria-label="Qidirish">⌕</button>
+   <button class="iconbtn" onclick="goOrder()" aria-label="Savatcha">🛒<span class="count" id="headCount">0</span></button>
+   <a class="btn" href="#order">Buyurtma ↗</a>
+  </div>
+ </div>
+</header>
+
+<main class="wrap">
+<section class="hero" id="home">
+ <div class="herobox">
+  <div class="herobg"></div>
+  <div class="herotext">
+   <div class="kicker">✦ PREMIUM FAST FOOD</div>
+   <h1>PANDA<br><span>BURGER.</span></h1>
+   <p>Bir luqma — mingta taassurot. Mazali burgerlar, yangi mahsulotlar va siz uchun tayyorlangan ajoyib ta'm!</p>
+   <div class="actions">
+    <a class="btn" href="#menu">🍔 Menyuni ko‘rish</a>
+    <a class="btn dark" href="#offers">Aksiyalar ↗</a>
+   </div>
+   <div class="hero-note"><span>⭐ <b>Premium ta’m</b></span><span>🔥 <b>Yangi tayyorlanadi</b></span></div>
+  </div>
+  <div class="heroquote"><b>MAZZA!</b><small>Har luqmadan zavq ol</small></div>
+ </div>
+</section>
+
+<div class="features" id="about">
+ <div class="feature"><i>🍔</i><div><b>Premium ta’m</b><small>Har luqma zavq</small></div></div>
+ <div class="feature"><i>🥬</i><div><b>Yangi mahsulot</b><small>Ta’m va sifat</small></div></div>
+ <div class="feature"><i>⚡</i><div><b>Tez xizmat</b><small>Qulay buyurtma</small></div></div>
+ <div class="feature"><i>💛</i><div><b>Yaxshi narx</b><small>Har kuni siz uchun</small></div></div>
+</div>
+
+<section class="section" id="menu">
+ <div class="head">
+  <div><div class="eyebrow">OUR MENU / BIZNING MENYU</div><h2>Sevimli taomingni tanla.</h2><p class="sub">Bugun nimadan mazza qilamiz?</p></div>
+  <input class="search" id="search" placeholder="🔎 Taom qidirish..." aria-label="Taom qidirish">
+ </div>
+ <div class="categories" id="categories">
+  <button class="cat active" data-cat="Hammasi"><span>🍽️</span>Hammasi</button>
+  <button class="cat" data-cat="Burger"><span>🍔</span>Burgerlar</button>
+  <button class="cat" data-cat="Lavash"><span>🌯</span>Lavash</button>
+  <button class="cat" data-cat="Fri"><span>🍟</span>Fri</button>
+  <button class="cat" data-cat="Ichimlik"><span>🥤</span>Ichimliklar</button>
+  <button class="cat" data-cat="Desert"><span>🍰</span>Desertlar</button>
+ </div>
+
+ <div class="layout">
+  <div>
+   <div class="head"><div><div class="eyebrow">PANDA FAVORITES</div><h2 id="menuTitle">🔥 Mashhur taomlar</h2></div><span class="sub" id="productCount"></span></div>
+   <div class="products" id="products"></div>
+  </div>
+  <aside class="side">
+   <div class="panel">
+    <h3>🛒 Savatcha <span style="color:var(--gold)" id="cartCount">0</span></h3>
+    <div id="cartItems"><p class="empty">Savatingiz hozircha bo‘sh. Menyudan sevimli taomingizni tanlang!</p></div>
+    <div class="total"><span>Jami summa</span><strong id="total">0 so‘m</strong></div>
+    <button class="btn full" onclick="goOrder()">Buyurtma berish →</button>
+   </div>
+
+   <div class="promo" id="offers">
+    <div class="eyebrow">LIMITED OFFER ✦</div>
+    <h3>MAZALI DAM<br>OLISH VAQTI!</h3>
+    <p>Sevimli burgeringizni tanlang va Panda Burger olamiga sho‘ng‘ing.</p>
+    <a class="btn" href="#menu">Menyuni ko‘rish ↗</a>
+   </div>
+
+   <div class="panel" id="order">
+    <h3>📦 Buyurtma berish</h3>
+    <p class="empty" style="margin-bottom:15px">Ma’lumotlaringizni to‘ldiring.</p>
+    <form id="orderForm">
+     <label>Ismingiz<input name="name" required maxlength="70" placeholder="Ismingiz"></label>
+     <label>Telefon<input name="phone" required type="tel" placeholder="+998 90 123 45 67"></label>
+     <label>Manzil<textarea name="address" required maxlength="300" rows="2" placeholder="Yetkazish manzili"></textarea></label>
+     <label>To‘lov usuli<select name="payment"><option>Naqd pul</option><option>Karta</option></select></label>
+     <label>Qo‘shimcha izoh<input name="note" maxlength="200" placeholder="Masalan, piyozsiz"></label>
+     <button class="btn full" type="submit">Buyurtma matnini tayyorlash</button>
+    </form>
+    <p class="orderhint">Demo versiya: buyurtma matni qurilmangizga yuklanadi. Restoranga yuborish uchun alohida server yoki Telegram bot kerak.</p>
+   </div>
+  </aside>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap foot">
+ <a class="brand" href="#home">🐼 PANDA <span>BURGER</span></a>
+ <span>Instagram · Telegram · Aloqa</span>
+ <span>© <span id="year"></span> Panda Burger</span>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const productsData=[
+{id:1,name:"Classic Burger",cat:"Burger",desc:"Mol go‘shti, salat, pomidor va maxsus sous",price:45000,emoji:"🍔",img:"photo-1568901346375-23c9450c58cd",tag:"HIT"},
+{id:2,name:"Double Burger",cat:"Burger",desc:"Ikki qavat go‘sht va mazali pishloq",price:65000,emoji:"🍔",img:"photo-1550547660-d9450f859349",tag:"TOP"},
+{id:3,name:"Cheese Burger",cat:"Burger",desc:"Pishloq, go‘sht va maxsus sous",price:55000,emoji:"🍔",img:"photo-157 burger",tag:""},
+{id:4,name:"Chicken Burger",cat:"Burger",desc:"Tovuq, salat va yumshoq bulochka",price:50000,emoji:"🍔",img:"photo-1606755962773-d324e0a13086",tag:""},
+{id:5,name:"Lavash Classic",cat:"Lavash",desc:"Go‘sht, sabzavot va mazali sous",price:40000,emoji:"🌯",img:"photo-1626700051175-6818013e1d4f",tag:""},
+{id:6,name:"Lavash Chicken",cat:"Lavash",desc:"Tovuq va yangi sabzavotlar",price:38000,emoji:"🌯",img:"photo-1529006557810-274b9b2fc783",tag:""},
+{id:7,name:"Katta Fri",cat:"Fri",desc:"Qarsildoq kartoshka fri",price:20000,emoji:"🍟",img:"photo-1573080496219-bb080dd4f877",tag:""},
+{id:8,name:"Mini Fri",cat:"Fri",desc:"Yengil va mazali tamaddi",price:12000,emoji:"🍟",img:"photo-1630384060421-cb20d0e0649d",tag:""},
+{id:9,name:"Cola",cat:"Ichimlik",desc:"Sovuq ichimlik, 0.5 litr",price:15000,emoji:"🥤",img:"photo-1629203851122-3726ecdf080e",tag:""},
+{id:10,name:"Limonad",cat:"Ichimlik",desc:"Salqin, limonli ichimlik",price:12000,emoji:"🍋",img:"photo-1513558161293-cdaf765edfd7",tag:""},
+{id:11,name:"Muzqaymoq",cat:"Desert",desc:"Shirin va mayin desert",price:18000,emoji:"🍦",img:"photo-1563805042-7684c019e1cb",tag:""},
+{id:12,name:"Shokoladli desert",cat:"Desert",desc:"Shokoladli shirinlik",price:25000,emoji:"🍰",img:"photo-1578985545062-69928b1d9587",tag:""}
+];
+
+let category="Hammasi",cart={},favorites=new Set();
+const money=n=>n.toLocaleString("uz-UZ")+" so‘m";
+const photoUrl=id=>id.startsWith("photo-")&&id!=="photo-157 burger"?
+"https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=600&q=80":"";
+
+function renderProducts(){
+ const query=document.getElementById("search").value.trim().toLowerCase();
+ const filtered=productsData.filter(p=>
+  (category==="Hammasi"||p.cat===category)&&
+  (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(query));
+ document.getElementById("products").innerHTML=filtered.map(p=>`
+  <article class="product">
+   <div class="photo">
+    <img src="${photoUrl(p.img)}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.display='grid';this.parentElement.style.placeItems='center';this.parentElement.style.fontSize='65px';this.parentElement.append('${p.emoji}')">
+    ${p.tag?`<span class="tag">${p.tag}</span>`:""}
+    <button class="fav ${favorites.has(p.id)?"on":""}" onclick="toggleFav(${p.id})" aria-label="Sevimlilarga qo‘shish">${favorites.has(p.id)?"♥":"♡"}</button>
+   </div>
+   <h3>${p.name}</h3><p class="desc">${p.desc}</p>
+   <div class="price">${money(p.price)}</div>
+   <button class="add" onclick="addCart(${p.id})">＋ Savatga qo‘shish</button>
+  </article>`).join("")||'<p class="empty">Bu qidiruv bo‘yicha taom topilmadi.</p>';
+ document.getElementById("productCount").textContent=filtered.length+" ta mahsulot";
+ document.getElementById("menuTitle").textContent=category==="Hammasi"?"🔥 Mashhur taomlar":category;
+}
+document.getElementById("categories").addEventListener("click",e=>{
+ const b=e.target.closest("[data-cat]");if(!b)return;
+ category=b.dataset.cat;
+ document.querySelectorAll(".cat").forEach(x=>x.classList.toggle("active",x===b));
+ renderProducts();
+});
+document.getElementById("search").addEventListener("input",renderProducts);
+
+function toggleFav(id){favorites.has(id)?favorites.delete(id):favorites.add(id);renderProducts();showToast(favorites.has(id)?"♥ Sevimlilarga qo‘shildi":"Sevimlilardan olib tashlandi")}
+function addCart(id){cart[id]=(cart[id]||0)+1;renderCart();showToast(productsData.find(p=>p.id===id).name+" savatga qo‘shildi!")}
+function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];renderCart()}
+function removeCart(id){delete cart[id];renderCart()}
+function renderCart(){
+ const entries=Object.entries(cart),count=entries.reduce((s,[,q])=>s+q,0);
+ const total=entries.reduce((s,[id,q])=>s+productsData.find(p=>p.id===+id).price*q,0);
+ document.getElementById("headCount").textContent=count;
+ document.getElementById("cartCount").textContent=count;
+ document.getElementById("total").textContent=money(total);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{
+ const p=productsData.find(x=>x.id===+id);
+ return `<div class="cartline"><div><b>${p.emoji} ${p.name}</b><small>${money(p.price)} × ${q}</small>
+ <div class="qty"><button onclick="changeQty(${p.id},-1)" aria-label="Kamaytirish">−</button><span>${q}</span><button onclick="changeQty(${p.id},1)" aria-label="Ko‘paytirish">+</button></div></div>
+ <button class="remove" onclick="removeCart(${p.id})" aria-label="O‘chirish">✕</button></div>`;
+ }).join(""):'<p class="empty">Savat bo‘sh. Menyudan taom tanlang! 🍔</p>';
+}
+function goOrder(){
+ if(!Object.keys(cart).length){showToast("Avval savatga taom qo‘shing 🍔");return}
+ document.getElementById("order").scrollIntoView({behavior:"smooth",block:"start"});
+}
+let toastTimer;
+function showToast(msg){
+ const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");
+ clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2400);
+}
+document.getElementById("orderForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!Object.keys(cart).length){showToast("Avval savatga taom qo‘shing!");return}
+ const fd=new FormData(e.target);
+ const items=Object.entries(cart).map(([id,q])=>{
+ const p=productsData.find(x=>x.id===+id);return `${p.name} x ${q} — ${money(p.price*q)}`;
+ });
+ const total=Object.entries(cart).reduce((s,[id,q])=>s+productsData.find(x=>x.id===+id).price*q,0);
+ const text=[
+ "PANDA BURGER — BUYURTMA","Ism: "+fd.get("name"),
+ "Telefon: "+fd.get("phone"),"Manzil: "+fd.get("address"),
+ "To‘lov: "+fd.get("payment"),"Izoh: "+(fd.get("note")||"Yo‘q"),
+ "",...items,"","JAMI: "+money(total)
+ ].join("\n");
+ const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="panda-burger-buyurtma.txt";a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+ showToast("Buyurtma matni tayyorlandi. Restoranga yuborilmadi.");
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();renderCart();
+</script>
+</body>
+</html>
